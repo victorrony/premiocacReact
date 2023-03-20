@@ -212,7 +212,7 @@
     margin: auto;
   }
 
-  
+
   body {
     margin: 0;
     background-color: #231e26;
@@ -260,5 +260,12 @@
     color: #ffffff;
     border: none;
   }
+
+
+  .form {
+    display: flex;
+  }
   
-  
+  .form_foto {
+    width: 60%
+  }
