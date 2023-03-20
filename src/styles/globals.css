@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);
+
 .header {
     height: 567.13px;
     background-image: url(/other/slider.png);
@@ -16,7 +17,7 @@
   }
   
   .logo {
-    margin: 10px;
+    margin: 20px 0 0 50px;
   }
   
   .header-btn {
@@ -210,6 +211,8 @@
     column-gap: 30px;
     margin: auto;
   }
+
+  
   body {
     margin: 0;
     background-color: #231e26;
@@ -226,4 +229,36 @@
     justify-content: center;
     border-radius: 20px;
   }
+
+  .btn_red {
+    width: 206px;
+    height: 42px;
+    left: 123px;
+    top: 485px;
+    background: #dd2827;
+    border-radius: 83px;
+    border: none;
+    color: #ffffff;
+  }
+  
+  .btn_white {
+    width: 206px;
+    height: 42px;
+    left: 345px;
+    top: 485px;
+    background: #ffffff;
+    border: 1px solid #dd2827;
+    border-radius: 83px;
+    color: red;
+  }
+  
+  .btn_img {
+    width: 130px;
+    height: 30px;
+    background: #dd2827;
+    border-radius: 35px;
+    color: #ffffff;
+    border: none;
+  }
+  
   
