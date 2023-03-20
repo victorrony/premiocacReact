@@ -1,0 +1,37 @@
+.section_grid_card {
+  /*position: relative;*/
+  width: 300px; 
+  padding: 20px;
+  background-color: #1c1e2a;  
+  box-shadow: 0px 6px 15px rgba(47, 128, 237, 0.1);
+  border-radius: 10px;
+}
+
+.grid_card_h1 {
+  color: red;
+  /*left: 423px;
+    top: 182px;*/
+  
+  font-style: normal;
+  font-weight: 400;
+  /* or 64px */
+  letter-spacing: 0.05em;
+}
+
+.grid_card_p {
+  /*top: 616.13px;*/  
+  font-style: normal;
+  /* identical to box height, or 45px */
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+.section_btn_ver_mais {
+  width: 122px;
+  height: 30px;
+  cursor: pointer;
+  background: #dd2827;
+  border-radius: 83px;
+  color: #ffffff;
+  border: none;
+}

@@ -1,0 +1,30 @@
+.btn_red {
+  width: 206px;
+  height: 42px;
+  left: 123px;
+  top: 485px;
+  background: #dd2827;
+  border-radius: 83px;
+  border: none;
+  color: #ffffff;
+}
+
+.btn_white {
+  width: 206px;
+  height: 42px;
+  left: 345px;
+  top: 485px;
+  background: #ffffff;
+  border: 1px solid #dd2827;
+  border-radius: 83px;
+  color: red;
+}
+
+.btn_img {
+  width: 130px;
+  height: 30px;
+  background: #dd2827;
+  border-radius: 35px;
+  color: #ffffff;
+  border: none;
+}

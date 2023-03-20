@@ -1,0 +1,30 @@
+.article {
+  background-color: #231e26;
+  text-align: center;
+  padding-bottom: 50px;
+  margin: auto;
+  width: 1130px;
+}
+
+.article_p {
+  color: white;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 160%;
+  letter-spacing: 0.05em;
+  margin: auto;
+}
+
+.article_grid {
+  column-gap: 30px;
+  row-gap: 30px;
+  width: 1080px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  height: auto;
+  border: 20px solid white;
+  background-color: white;
+}

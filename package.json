@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "next": "^13.2.4"
   }
 }

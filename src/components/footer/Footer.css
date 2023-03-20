@@ -1,0 +1,40 @@
+.footer {
+  height: auto;
+  background-color: #231e26;
+  display: grid;
+}
+
+.footer_grid {
+  
+  /*width: 1355px;
+  height: 606px;*/
+  background-color: #231e26;
+}
+
+.footer_img {
+  margin: auto;
+  
+  text-align: center;
+  height: 73px;
+  
+}
+
+
+
+
+.footer_p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 50px;
+  /*padding-top: 40px;*/
+}
+
+.footer_grid_card {
+  display: grid;
+  width: 1320px;
+  grid-template-columns: auto auto auto auto auto;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin: auto;
+  padding-bottom: 70px;
+}
