@@ -1,14 +1,15 @@
 import Article from "@/components/article/Article";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import SectionGridCard from "@/components/sectionCard/sectionGridCard/SectionGridCard";
+import SectionCard from "@/components/sectionCard/SectionCard";
+
 
 
 function HomePage() {
   return (
     <>
       <Header />
-      <SectionGridCard />
+      <SectionCard />
       <Article />
       <Footer />
     </>

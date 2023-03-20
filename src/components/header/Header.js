@@ -1,5 +1,4 @@
 
-
 import Buttons from "../utils/Buttons";
 
 
@@ -8,7 +7,7 @@ export default function Header() {
     <header className="header">
       <div className="header_head">
         <img
-          src={"./other/Logo.png"}
+          src={"/other/Logo.png"}
           alt="Descrição da imagem"
           className="logo"
         />

@@ -1,5 +1,4 @@
 import SectionGridCard from "./sectionGridCard/SectionGridCard";
-import "./SectionCard.css";
 
 
 export default function SectionCard() {
