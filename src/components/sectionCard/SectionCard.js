@@ -7,7 +7,7 @@ export default function SectionCard() {
   const { loading, error, data } = useQuery(FAGS);
   if(error) return "Error";
   if(loading) return "Loafing";
-
+  console.log(data)
   return (
     <div className="section_card">
       <div className="section_div_input">
@@ -17,11 +17,11 @@ export default function SectionCard() {
       </div>
       <div className="section_grid">
         {
-          data.fags?.data?.map((f,i) => <SectionGridCard
+          data.faqs.data?.map((f,i) =>   <SectionGridCard
           key={i}
           id={f.id}
           title={f.attributes.title}
-          p={f.attributes.description}
+          description={f.attributes.description}
         />)
         }
       </div>
