@@ -13,7 +13,7 @@ export default function LoginForm({ }) {
           password: credentials.password,
           provider: "local",
         },
-        dir
+        true
       )
     );
   };

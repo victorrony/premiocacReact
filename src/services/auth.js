@@ -93,14 +93,14 @@ export const AuthProvider = ({children}) => {
  });
 }
 
-  useEffect(async () => {
+  useEffect(() => {
 
     const cookies = parseCookies();
     var c;
 
       try {
 
-          c = await JSON.parse(cookies.login);
+          c = JSON.parse(cookies.login);
           console.log(c);
           //login(c);
           console.log(login(c));

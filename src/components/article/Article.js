@@ -1,8 +1,14 @@
 
-
+import { CONTESTANTS } from "@/services/api/mutations/queries/contestants";
+import { useQuery } from "@apollo/client";
 import ArticleGridCard from "./articleGridCard/ArticleGridCard";
 
 export default function Article() {
+  const { loading, error, data } = useQuery(CONTESTANTS);
+
+  if (loading) return <Layout><Loading /></Layout>;
+  if (error) return <Layout>Error :(</Layout>;
+  
   return (
     <div className="article">
       <div className="article_p">
