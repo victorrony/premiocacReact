@@ -16,7 +16,7 @@ import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
 
-  uri: 'https://webfood.cv/strapi/graphql',
+  uri: 'https://premiocac.com/api/graphql',
 
 });
 

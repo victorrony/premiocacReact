@@ -8,6 +8,7 @@ export default function Article() {
 
   if (loading) return "Loading";
   if (error) return "EROR";
+  console.log(data)
   return (
     <div className="article">
       <div className="article_p">
@@ -16,15 +17,16 @@ export default function Article() {
         </h2>
       </div>
       <div className="article_grid">
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
-        <ArticleGridCard />
+        {
+          data.contestants?.data.map(
+            (a,i) => <ArticleGridCard
+              key={i}  
+              name={a.attributes?.name} 
+              img={a.attributes.portrait?.data.attributes}
+              description={a.attributes?.description}
+              />
+          )
+        }
       </div>
     </div>
   );
