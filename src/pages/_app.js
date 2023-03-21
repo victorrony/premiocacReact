@@ -1,4 +1,4 @@
-import { client } from '@/app/api'
+import { client } from '@/services/api'
 import '@/styles/globals.css'
 import { ApolloProvider } from '@apollo/client'
 
