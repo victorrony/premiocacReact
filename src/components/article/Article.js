@@ -6,9 +6,8 @@ import ArticleGridCard from "./articleGridCard/ArticleGridCard";
 export default function Article() {
   const { loading, error, data } = useQuery(CONTESTANTS);
 
-  if (loading) return <Layout><Loading /></Layout>;
-  if (error) return <Layout>Error :(</Layout>;
-  
+  if (loading) return "Loading";
+  if (error) return "EROR";
   return (
     <div className="article">
       <div className="article_p">
