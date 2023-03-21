@@ -10,9 +10,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.2.7"
-  },
-  "dependencies": {
-    "@apollo/client": "^3.7.10",
-    "graphql": "^16.6.0"
   }
 }
