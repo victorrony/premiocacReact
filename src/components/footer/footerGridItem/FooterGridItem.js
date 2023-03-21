@@ -1,8 +1,8 @@
 
 
-export default function FooterGridItem () {
+export default function FooterGridItem ({img,name}) {
 
     return (
-        <div className="footer_grid_item">1</div>
+        <img src={img.url} className="footer_grid_item" />
     )
 }

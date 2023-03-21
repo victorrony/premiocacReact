@@ -1,11 +1,20 @@
+import { useAuth } from "@/services/auth";
 
-
-export default function ArticleGridCard() {
+export default function ArticleGridCard({name,img,description,vote=()=>{}}) {
+  const {user} = useAuth();
   return (
     <div className="article_grid_card">
-      <h1 className="article_grid_card_h1">NOME</h1>
-      <h2 className="article_grid_card_h2">descriçao</h2>
-      <button className="article_grid_btn">Votar</button>
+      <img src={process.env.API + img.url} />
+      <h1 className="article_grid_card_h1">{name}</h1>
+      <h2 className="article_grid_card_h2">{description}</h2>
+      {user?
+      <button className="article_grid_btn" onClick={vote}>Votar</button>
+      :
+      <button className="article_grid_btn" onClick={()=> {
+        window.location.href = "/login";
+      }}>Logar Para Votar</button>
+      }
+      
     </div>
   );
 }
