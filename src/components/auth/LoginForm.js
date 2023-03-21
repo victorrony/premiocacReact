@@ -3,9 +3,9 @@ import { EmailAndPasswordFeild } from "../utils/Fields";
 import { useAuth } from "@/services/auth";
 import Buttons from "../utils/Buttons";
 
-export default function LoginForm({ }) {
+export default function LoginForm({}) {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
- const {login} = useAuth()
+  const { login } = useAuth();
   const submit = () => {
     console.log(
       login(
@@ -32,7 +32,10 @@ export default function LoginForm({ }) {
         <div className="div_input">
           <EmailAndPasswordFeild set={setCredentials} />
         </div>
-        <Buttons twClass="text-white bg-red-600 w-16 h-8 rounded-full" label="Login" />
+        <Buttons
+          twClass="text-white bg-red-600 w-16 h-8 rounded-full"
+          label="Login"
+        />
       </div>
     </form>
   );

@@ -10,7 +10,7 @@ export default function SectionGridCard({title,description}) {
         {description}
       </p>
       <div>
-        <Buttons Nome="Ver Mais" className="btn_img" />
+        <Buttons label={"Ver Mais"} className="bg-red-600" />
       </div>
     </div>
   );
