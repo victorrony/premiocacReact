@@ -11,13 +11,7 @@ export default function SectionCard() {
   if (loading) return "Loading";
   console.log(data);
   return (
-    <div className="grid">
-      <div className="m-auto my-8">
-        <Input
-          set={setKey}
-          twClass="w-[40rem] text-white font-bold bg-secondary border-secondary border-2 focus:bg-white focus:text-black"
-        />
-      </div>
+    <div className="grid pt-16">
       <div className="grid grid-cols-3 gap-8 m-auto place-content-center  max-w-4xl">
         {data.faqs.data?.map((f, i) => (
           <SectionGridCard

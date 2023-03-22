@@ -1,3 +1,4 @@
+import Buttons from "@/components/utils/Buttons";
 import { useAuth } from "@/services/auth";
 
 export default function ArticleGridCard({
@@ -20,21 +21,12 @@ export default function ArticleGridCard({
         <h1 className="font-bold mt-24">{name}</h1>
         <h2 className="mb-2">{description}</h2>
         {user ? (
-          <button
-            className="font-extrabold min-w-24 px-4 h-8 bg-red-600 rounded-3xl"
-            onClick={vote}
-          >
-            Votar
-          </button>
+          <Buttons label="Votar" action={vote} />
         ) : (
-          <button
-            className="font-extrabold min-w-24 px-4 h-8 bg-red-600 rounded-3xl"
-            onClick={() => {
-              window.location.href = "/login";
-            }}
-          >
-            Logar Para Votar
-          </button>
+          <Buttons
+            label="Votar"
+            action={() => window.location.href = "/login"}
+          />
         )}
       </div>
     </div>
