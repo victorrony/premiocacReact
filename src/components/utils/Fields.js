@@ -1,12 +1,12 @@
-const cN = "w-96 h-12 rounded-full p-2";
-export const Input = ({ set, lable }) => (
+const cN = "w-96 h-12 rounded-full p-2 px-6";
+export const Input = ({ set, label, twClass}) => (
   <div className="form-group mb-6">
-    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-      {lable}
+    <label className="block mb-2 text-sm font-bold text-white ">
+      {label}
     </label>
     <input
       type="text"
-      className={cN}
+      className={cN + " " + twClass}
       required
       onChange={(e) => set(e.target.value)}
     />
@@ -14,9 +14,9 @@ export const Input = ({ set, lable }) => (
 );
 
 export const EmailAndPasswordFeild = ({ set }) => (
-  <div className="grid gap-4">
+  <div className="grid">
     <Input
-      lable={"Email"}
+      label={"Email"}
       set={(val) => {
         set((c) => {
           c.email = val;
@@ -28,7 +28,7 @@ export const EmailAndPasswordFeild = ({ set }) => (
     <div className="form-group mb-6">
       
       <Input
-        lable={"Senha"}
+        label={"Senha"}
         set={(val) => {
           set((c) => {
             c.password = val;

@@ -2,7 +2,7 @@ import { useAuth } from "@/services/auth";
 import { EmailAndPasswordFeild, Input } from "../utils/Fields";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import Buttons from "../utils/Buttons";
+import Buttons, { LinkButton } from "../utils/Buttons";
 
 export default function RegisterForm({ onSubmit }) {
   const { user, register } = useAuth();
@@ -34,7 +34,7 @@ export default function RegisterForm({ onSubmit }) {
   };
   return (
     <form
-      className=""
+      className="grid place-content-center p-10 gap-2"
       onSubmit={(e) => {
         e.preventDefault();
         if (!credentials.password) {
@@ -48,27 +48,27 @@ export default function RegisterForm({ onSubmit }) {
         console.log("HERE");
       }}
     >
-      <Input set={setUN} label="User Name" />
+      <Input set={setUN} label="UserName" />
       <EmailAndPasswordFeild set={setCredentials} />
-      <div className="form_register">
-        <div className="div_input"></div>
-        <Buttons
-          twClass="text-white bg-red-600 w-24 h-8 rounded-full"
-          label={"Registrar"}
-        />
-        <a href="" className="btn_img">
-          <input
+      <div className="text-white">
+      <input
             onChange={(e) => {
               console.log(e.target.checked);
               sept([e.target.checked, e.target.checked ? "hidden" : ""]);
             }}
             name="paymet"
             type="checkbox"
-            className=""
+            className="mr-4"
             id="accept"
           />
-          Não possui uma conta? Registe-se aqui{" "}
-        </a>
+          Aceite os termos de Privacidade
+          </div>
+      <div className="">
+        <div className=""></div>
+        <Buttons
+          label={"Registrar"}
+          twClass="!bg-main"        />
+        <LinkButton url="" label="Não possui uma conta? Registe-se aqui" />
       </div>
     </form>
   );
