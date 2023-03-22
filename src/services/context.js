@@ -1,10 +1,6 @@
 import {useState, useEffect, useContext, createContext} from 'react';
-import {parseCookies} from 'nookies';
-import {useRouter} from 'next/router';
-import nookies from 'nookies';
 import {toast} from 'react-toastify';
 import { useMutation } from "@apollo/client";
-import {LOGIN,REGISTER} from './api/mutations/user';
 import { VOTE } from './api/mutations/vote';
 import { useAuth } from './auth';
 
@@ -21,8 +17,10 @@ export const AppProvider = ({children}) => {
         voter: user.id
      }},
     onCompleted:(data)=>{
+      toast("Sucesso ao votar")
     },
     onError:()=>{
+      toast("Nao Foi posivel Votar")
       
     }
   });
