@@ -5,7 +5,7 @@ import ArticleGridCard from "./articleGridCard/ArticleGridCard";
 
 export default function Article() {
   const { loading, error, data } = useQuery(CONTESTANTS);
-  const {vote} = useApp();
+  const { vote } = useApp();
 
   if (loading) return "Loading";
   if (error) return "Error";
@@ -20,7 +20,7 @@ export default function Article() {
       <div className="grid grid-cols-4 gap-14 p-6 rounded-[40px] bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
-            vote={()=> vote(a.id)}
+            vote={() => vote(a.id)}
             key={i}
             name={a.attributes?.name}
             img={a.attributes.portrait?.data.attributes}

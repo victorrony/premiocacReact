@@ -1,9 +1,7 @@
 const cN = "w-96 h-12 rounded-full p-2 px-6";
-export const Input = ({ set, label, twClass}) => (
+export const Input = ({ set, label, twClass }) => (
   <div className="form-group mb-6">
-    <label className="block mb-2 text-sm font-bold text-white ">
-      {label}
-    </label>
+    <label className="block mb-2 text-sm font-bold text-white ">{label}</label>
     <input
       type="text"
       className={cN + " " + twClass}
@@ -26,7 +24,6 @@ export const EmailAndPasswordFeild = ({ set }) => (
       placeholder="anything@example.com"
     />
     <div className="form-group mb-6">
-      
       <Input
         label={"Senha"}
         set={(val) => {

@@ -51,23 +51,21 @@ export default function RegisterForm({ onSubmit }) {
       <Input set={setUN} label="UserName" />
       <EmailAndPasswordFeild set={setCredentials} />
       <div className="text-white">
-      <input
-            onChange={(e) => {
-              console.log(e.target.checked);
-              sept([e.target.checked, e.target.checked ? "hidden" : ""]);
-            }}
-            name="paymet"
-            type="checkbox"
-            className="mr-4"
-            id="accept"
-          />
-          Aceite os termos de Privacidade
-          </div>
+        <input
+          onChange={(e) => {
+            console.log(e.target.checked);
+            sept([e.target.checked, e.target.checked ? "hidden" : ""]);
+          }}
+          name="paymet"
+          type="checkbox"
+          className="mr-4"
+          id="accept"
+        />
+        Aceite os termos de Privacidade
+      </div>
       <div className="">
         <div className=""></div>
-        <Buttons
-          label={"Registrar"}
-          twClass="!bg-main"        />
+        <Buttons label={"Registrar"} twClass="!bg-main" />
         <LinkButton url="" label="Não possui uma conta? Registe-se aqui" />
       </div>
     </form>

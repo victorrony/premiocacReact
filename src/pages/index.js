@@ -3,8 +3,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import SectionCard from "@/components/sectionCard/SectionCard";
 import { useQuery } from "@apollo/client";
-import { SLIDERS } from '../services/api/queries'
-
+import { SLIDERS } from "../services/api/queries";
 
 function HomePage() {
   const { loading, error, data } = useQuery(SLIDERS);
@@ -12,7 +11,7 @@ function HomePage() {
   if (loading) return "Loading";
   return (
     <>
-      <Header data={data}/>
+      <Header data={data} />
       <SectionCard />
       <Article />
       <Footer />

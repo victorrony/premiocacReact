@@ -11,8 +11,8 @@ export default function Footer() {
     <div className="grid place-content-center">
       <div className="grid place-content-center">
         <Image
-        width={200}
-        height={100}
+          width={200}
+          height={100}
           src="/other/logo.png"
           alt="logotipo"
           className="my-8"
