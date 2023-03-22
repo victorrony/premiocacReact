@@ -1,0 +1,87 @@
+image: docker:stable
+
+stages:
+  - build
+  - deploy
+
+before_script:
+  # resolve TAG
+  # Default branch leaves tag latest
+  # All other branches are tagged with the escaped branch name (commit ref slug)
+  - |
+    if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+      TAG="latest"
+      echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '$TAG'"
+    else
+      TAG="$CI_COMMIT_REF_SLUG"
+      echo "Running on branch '$CI_COMMIT_BRANCH': tag = $TAG"
+    fi
+
+build-staging:
+  stage: build
+  environment: staging
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg ENV="$ENV" -t $CI_REGISTRY_IMAGE:$TAG .
+    - docker push $CI_REGISTRY_IMAGE:$TAG
+  rules:
+    - if: $CI_COMMIT_BRANCH == "dev"
+      exists:
+        - Dockerfile
+      when: on_success
+  tags:
+   - premiocac
+
+build-production:
+  stage: build
+  environment: production
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg ENV="$ENV" -t $CI_REGISTRY_IMAGE:$TAG .
+    - docker push $CI_REGISTRY_IMAGE:$TAG
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      exists:
+        - Dockerfile
+      when: on_success
+  tags:
+   - premiocac
+
+
+deploy-staging:
+  image: docker/compose
+  stage: deploy
+  environment: staging
+  variables:
+    IMAGE: $CI_REGISTRY_IMAGE
+    TAG: $TAG
+  script:
+    - echo "$ENV" >> .env
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker-compose version
+    - docker-compose pull
+    - docker-compose -p staging-$CI_PROJECT_NAME up -d --no-build
+  rules:
+    - if: $CI_COMMIT_BRANCH == "dev"
+      when: on_success
+  tags:
+    - premiocac
+
+deploy-production:
+  image: docker/compose
+  stage: deploy
+  environment: production
+  variables:
+    IMAGE: $CI_REGISTRY_IMAGE
+    TAG: $TAG
+  script:
+    - echo "$ENV" >> .env
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker-compose version
+    - docker-compose pull
+    - docker-compose -p production-$CI_PROJECT_NAME up -d --no-build
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+  tags:
+    - premiocac
