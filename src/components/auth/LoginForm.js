@@ -1,17 +1,41 @@
+import { useState } from "react";
+import { EmailAndPasswordFeild } from "../utils/Fields";
+import { useAuth } from "@/services/auth";
 import Buttons from "../utils/Buttons";
-import { Input } from "../utils/Fields";
 
-export default function LoginForm({onsubmit}) {
+export default function LoginForm({}) {
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const { login } = useAuth();
+  const submit = () => {
+    console.log(
+      login(
+        {
+          identifier: credentials.email,
+          password: credentials.password,
+          provider: "local",
+        },
+        true
+      )
+    );
+  };
+
   return (
-    <form className="">
-      <div className="form_register">
-        <div className="div_input">
-          <Input />
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        submit();
+        console.log("HERE");
+      }}
+      className="grid place-content-center p-10 gap-2"
+    >
+      <div className="">
+        <div className="">
+          <EmailAndPasswordFeild set={setCredentials} />
         </div>
-        <div className="div_input">
-          <Input />
-        </div>
-        <Buttons Nome="login" className="btn_img" />
+        <Buttons
+          twClass="!bg-main" 
+          label="Login"
+        />
       </div>
     </form>
   );

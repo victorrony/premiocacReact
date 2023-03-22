@@ -1,35 +1,27 @@
+import { FAGS } from "@/services/api/queries/fags";
+import { useQuery } from "@apollo/client";
+import { useState } from "react";
+import { Input } from "../utils/Fields";
 import SectionGridCard from "./sectionGridCard/SectionGridCard";
 
-
 export default function SectionCard() {
+  const [keyword, setKey] = useState("");
+  const { loading, error, data } = useQuery(FAGS);
+  if (error) return "Error";
+  if (loading) return "Loading";
+  console.log(data);
   return (
-    <div className="section_card">
-      <div className="section_div_input">
-      
-        <input type="text"  className="section_input" />
-        
-      </div>
-      <div className="section_grid">
-        <SectionGridCard
-          title="O QUE É CAC?"
-          p="lorem jvhvi hvhi gdgcyg gvgyvvvg gvdghhhh
-           ygy gygfg yy yyuy yuyuh yugyh ygghvb ghvbvg
-            hvvb gvvg gvg njjv jjnn byg uhiui uhuhuhu."
-        />
-
-        <SectionGridCard
-          title="OBJECTIVOS"
-          p="lorem jvhvi hvhi gdgcyg gvgyvvvg gvdghhhh
-           ygy gygfg yy yyuy yuyuh yugyh ygghvb ghvbvg
-            hvvb gvvg gvg njjv jjnn byg uhiui uhuhuhu."
-        />
-
-        <SectionGridCard
-          title="OBJECTIVOS"
-          p="lorem jvhvi hvhi gdgcyg gvgyvvvg gvdghhhh
-         ygy gygfg yy yyuy yuyuh yugyh ygghvb ghvbvg
-          hvvb gvvg gvg njjv jjnn byg uhiui uhuhuhu."
-        />
+    <div className="grid pt-16">
+      <div className="grid grid-cols-3 gap-8 m-auto place-content-center  max-w-4xl">
+        {data.faqs.data?.map((f, i) => (
+          <SectionGridCard
+            key={i}
+            id={f.id}
+            i={i}
+            title={f.attributes.title}
+            description={f.attributes.description}
+          />
+        ))}
       </div>
     </div>
   );
