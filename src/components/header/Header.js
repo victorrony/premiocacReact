@@ -56,13 +56,13 @@ export default function Header({ data }) {
             <Image
               style={{objectFit: "cover"}}
               className="relative"
-              src={process.env.NEXT_PUBLIC_API + banner.attributes?.url}
+              src={process.env.NEXT_PUBLIC_API_URL + banner.attributes?.url}
               alt={banner.Name}
               fill
               priority={true}
               placeholder="blur"
               blurDataURL={
-                process.env.NEXT_PUBLIC_API +
+                process.env.NEXT_PUBLIC_API_URL +
                 banner.image?.data?.attributes?.url
               }
             />

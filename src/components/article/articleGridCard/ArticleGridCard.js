@@ -23,7 +23,7 @@ export default function ArticleGridCard({
         <h2 className="mb-2">{description}</h2>
         {!vote? voted?<button disabled
           className="font-extrabold min-w-24 px-4 h-8 bg-white text-black rounded-3xl "
-        >VOTADO</button>:null:user ? (
+        >VOTADO</button>:<button className="h-8"></button>:user ? (
           <Buttons label="Votar" action={vote} />
         ) : (
           <Buttons

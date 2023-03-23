@@ -7,24 +7,31 @@ import { useEffect, useState } from "react";
 import ArticleGridCard from "./articleGridCard/ArticleGridCard";
 
 export default function Article() {
-  const {user} = useAuth();
-  const [voted,setVoted] = useState(null);
+  const { user } = useAuth();
+  const [voted, setVoted] = useState(null);
   const { loading, error, data } = useQuery(CONTESTANTS);
   const [getVoted] = useLazyQuery(VOTED);
   const { vote } = useApp();
-  
+
   const load = () => {
-    getVoted({
+    
+    setTimeout(() => getVoted({
       variables: {
-       usersPermissionsUserId: user?.id
-      },onCompleted:(data)=> {
-        setVoted({id:null});
-      }});
+        usersPermissionsUserId: user?.id
+      }, onCompleted: (data) => {
+        console.log("VOTED ID", data.usersPermissionsUser.data.attributes)
+        if (data.usersPermissionsUser.data.attributes.voted) {
+          
+          setVoted({ id: data.usersPermissionsUser.data.attributes.vote?.data.attributes.contestant.data.id });
+          debugger
+        }
+      }
+    }),2000);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     load();
-  },[user])
+  }, [user])
 
   if (loading) return "Loading";
   if (error) return "Error";
@@ -39,8 +46,8 @@ export default function Article() {
       <div className="grid grid-cols-4 gap-14 p-6 rounded-[40px] bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
-            voted={voted?.id == a.id?true:false}
-            vote={voted?null:() => vote(a.id,{load:load})}
+            voted={voted?.id == a.id ? true : false}
+            vote={voted ? null : () => vote(a.id, { load: load }) }
             key={i}
             name={a.attributes?.name}
             img={a.attributes.portrait?.data.attributes}
