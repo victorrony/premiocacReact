@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IconButtons } from "../utils/Buttons";
 import { useAuth } from "@/services/auth";
+import { useRouter } from "next/router";
 
 export default function Header({ data }) {
   const settings = {
@@ -19,6 +20,7 @@ export default function Header({ data }) {
   };
   console.log("All Slider", data.sliders);
   const { user,logOut} = useAuth();
+  const router = useRouter()
   const Icon = () => <Image src="/other/user.svg" width={10} height={10} />;
   return (
     <>
@@ -33,10 +35,10 @@ export default function Header({ data }) {
         ) :(
           <>
           <IconButtons Icon={Icon} label="Login"
-          action={() => window.location.href = "/login"}
+          action={() =>router.push('/login')}
            />
           <IconButtons Icon={Icon} label="Register" 
-          action={() => window.location.href = "/register"}
+          action={() => router.push("/register")}
           /></>
           
         ) }

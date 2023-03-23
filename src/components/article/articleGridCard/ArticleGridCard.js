@@ -1,5 +1,6 @@
 import Buttons from "@/components/utils/Buttons";
 import { useAuth } from "@/services/auth";
+import { useRouter } from "next/router";
 
 export default function ArticleGridCard({
   name,
@@ -9,6 +10,7 @@ export default function ArticleGridCard({
   vote,
 }) {
   const { user } = useAuth();
+  const router = useRouter();
   return (
     <div
       className="max-h-1/2 text-left rounded-3xl h-full"
@@ -28,7 +30,7 @@ export default function ArticleGridCard({
         ) : (
           <Buttons
             label="Login para Votar"
-            action={() => window.location.href = "/login"}
+            action={() => router.push('/login')}
           />
         )}
       </div>
