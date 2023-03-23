@@ -14,19 +14,19 @@ export default function Article() {
   const { vote } = useApp();
 
   const load = () => {
-    
-    setTimeout(() => getVoted({
+
+    getVoted({
       variables: {
         usersPermissionsUserId: user?.id
       }, onCompleted: (data) => {
         console.log("VOTED ID", data.usersPermissionsUser.data.attributes)
         if (data.usersPermissionsUser.data.attributes.voted) {
-          
+
           setVoted({ id: data.usersPermissionsUser.data.attributes.vote?.data.attributes.contestant.data.id });
-          debugger
+
         }
       }
-    }),2000);
+    });
   }
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Article() {
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
             voted={voted?.id == a.id ? true : false}
-            vote={voted ? null : () => vote(a.id, { load: load }) }
+            vote={voted ? null : () => vote(a.id, { load: load })}
             key={i}
             name={a.attributes?.name}
             img={a.attributes.portrait?.data.attributes}

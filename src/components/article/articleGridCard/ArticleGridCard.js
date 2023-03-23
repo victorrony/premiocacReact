@@ -13,7 +13,7 @@ export default function ArticleGridCard({
     <div
       className="max-h-1/2 text-left rounded-3xl h-full"
       style={{
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_API + img.url})`,
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL + img.url})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
