@@ -5,7 +5,8 @@ export default function ArticleGridCard({
   name,
   img,
   description,
-  vote = () => {},
+  voted,
+  vote,
 }) {
   const { user } = useAuth();
   return (
@@ -20,7 +21,9 @@ export default function ArticleGridCard({
       <div className="hover:bg-black/25 bg-black/50 p-4 rounded-3xl ease-in-out text-white">
         <h1 className="font-bold mt-24">{name}</h1>
         <h2 className="mb-2">{description}</h2>
-        {user ? (
+        {!vote? voted?<button disabled
+          className="font-extrabold min-w-24 px-4 h-8 bg-white text-black rounded-3xl "
+        >VOTADO</button>:null:user ? (
           <Buttons label="Votar" action={vote} />
         ) : (
           <Buttons

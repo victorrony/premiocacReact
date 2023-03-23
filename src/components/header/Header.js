@@ -54,6 +54,7 @@ export default function Header({ data }) {
               </div>
             </div>
             <Image
+              style={{objectFit: "cover"}}
               className="relative"
               src={process.env.NEXT_PUBLIC_API + banner.attributes?.url}
               alt={banner.Name}

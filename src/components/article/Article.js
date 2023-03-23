@@ -1,11 +1,30 @@
 import { CONTESTANTS } from "@/services/api/queries/contestants";
+import { VOTED } from "@/services/api/queries/user";
+import { useAuth } from "@/services/auth";
 import { useApp } from "@/services/context";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 import ArticleGridCard from "./articleGridCard/ArticleGridCard";
 
 export default function Article() {
+  const {user} = useAuth();
+  const [voted,setVoted] = useState(null);
   const { loading, error, data } = useQuery(CONTESTANTS);
+  const [getVoted] = useLazyQuery(VOTED);
   const { vote } = useApp();
+  
+  const load = () => {
+    getVoted({
+      variables: {
+       usersPermissionsUserId: user?.id
+      },onCompleted:(data)=> {
+        setVoted({id:null});
+      }});
+  }
+
+  useEffect(()=>{
+    load();
+  },[user])
 
   if (loading) return "Loading";
   if (error) return "Error";
@@ -20,7 +39,8 @@ export default function Article() {
       <div className="grid grid-cols-4 gap-14 p-6 rounded-[40px] bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
-            vote={() => vote(a.id)}
+            voted={voted?.id == a.id?true:false}
+            vote={voted?null:() => vote(a.id,{load:load})}
             key={i}
             name={a.attributes?.name}
             img={a.attributes.portrait?.data.attributes}
