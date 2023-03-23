@@ -5,8 +5,8 @@ import nookies from "nookies";
 import { toast } from "react-toastify";
 import { useMutation } from "@apollo/client";
 import { LOGIN, REGISTER } from "./api/mutations/user";
-import { client } from "./api";
-import { VOTED } from "./api/queries/user";
+
+
 
 export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
@@ -24,9 +24,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
     } catch (e) {
     } finally {
-      client.refetchQueries({
-        include: [VOTED],
-      });
+     
     }
   };
   //

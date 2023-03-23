@@ -16,7 +16,7 @@ export default function Article() {
     error: unvoted,
     data: votedd,
   } = useQuery(VOTED, {
-    variables: {
+   fetchPolicy:"no-cache", variables: {
       usersPermissionsUserId: user?.id,
     },
     onCompleted: (data) => {

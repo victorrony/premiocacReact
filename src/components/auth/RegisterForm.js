@@ -34,7 +34,7 @@ export default function RegisterForm({ onSubmit }) {
   };
   return (
     <form
-      className="grid place-content-center p-10 gap-2"
+      className=" place-content-center p-10 gap-2 "
       onSubmit={(e) => {
         e.preventDefault();
         if (!credentials.password) {
@@ -48,7 +48,7 @@ export default function RegisterForm({ onSubmit }) {
         console.log("HERE");
       }}
     >
-      {" "}
+      
       <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
         <h1>Registre-se</h1>
       </div>

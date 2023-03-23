@@ -7,7 +7,7 @@ import { IconButtons } from "../utils/Buttons";
 import { useAuth } from "@/services/auth";
 import { useRouter } from "next/router";
 
-export default function Header({ data }) {
+export default function Header({fu, data }) {
   const settings = {
     arrows: false,
     dots: true,
@@ -29,7 +29,7 @@ export default function Header({ data }) {
       </div>
       <div className="z-50 right-10 top-5 absolute flex">
         {user ? (
-          <IconButtons Icon={Icon} label="Logout" action={logOut} />
+          <IconButtons Icon={Icon} label="Logout" action={()=>{router.push("/login");logOut()}} />
         ) : (
           <>
             <IconButtons
