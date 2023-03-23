@@ -27,7 +27,7 @@ export default function ArticleGridCard({
           <Buttons label="Votar" action={vote} />
         ) : (
           <Buttons
-            label="Votar"
+            label="Login para Votar"
             action={() => window.location.href = "/login"}
           />
         )}
