@@ -14,9 +14,7 @@ export default function SectionGridCard({ title, description, i }) {
       >
         {title}
       </h1>
-      <p className="font-bold text-sm text-white p-2 ">
-        {description}
-      </p>
+      <p className="font-bold text-sm text-white p-2 ">{description}</p>
       <div>
         {/* <Buttons
           label={"Ver Mais"}

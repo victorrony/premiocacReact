@@ -1,4 +1,3 @@
-
 export default function Wraper({ children }) {
   return (
     <div className="grid md:place-content-center grid-cols-1  md:grid-cols-3 h-screen">

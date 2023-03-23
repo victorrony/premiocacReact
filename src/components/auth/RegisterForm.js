@@ -48,6 +48,10 @@ export default function RegisterForm({ onSubmit }) {
         console.log("HERE");
       }}
     >
+      {" "}
+      <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
+        <h1>Registre-se</h1>
+      </div>
       <Input set={setUN} label="UserName" type="text" />
       <EmailAndPasswordFeild set={setCredentials} />
       <div className="text-white">
