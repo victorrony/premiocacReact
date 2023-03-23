@@ -19,8 +19,8 @@ export default function Header({ data }) {
     slidesToScroll: 1,
   };
   console.log("All Slider", data.sliders);
-  const { user,logOut} = useAuth();
-  const router = useRouter()
+  const { user, logOut } = useAuth();
+  const router = useRouter();
   const Icon = () => <Image src="/other/user.svg" width={10} height={10} />;
   return (
     <>
@@ -29,19 +29,21 @@ export default function Header({ data }) {
       </div>
       <div className="z-50 right-10 top-5 absolute flex">
         {user ? (
-          <IconButtons Icon={Icon} label="Logout"
-          action={logOut}
-          />
-        ) :(
+          <IconButtons Icon={Icon} label="Logout" action={logOut} />
+        ) : (
           <>
-          <IconButtons Icon={Icon} label="Login"
-          action={() =>router.push('/login')}
-           />
-          <IconButtons Icon={Icon} label="Register" 
-          action={() => router.push("/register")}
-          /></>
-          
-        ) }
+            <IconButtons
+              Icon={Icon}
+              label="Login"
+              action={() => router.push("/login")}
+            />
+            <IconButtons
+              Icon={Icon}
+              label="Register"
+              action={() => router.push("/register")}
+            />
+          </>
+        )}
       </div>
       <Slider {...settings}>
         {data.sliders.data[0].attributes.pictures.data.map((banner, index) => (
@@ -56,7 +58,7 @@ export default function Header({ data }) {
               </div>
             </div>
             <Image
-              style={{objectFit: "cover"}}
+              style={{ objectFit: "cover" }}
               className="relative"
               src={process.env.NEXT_PUBLIC_API_URL + banner.attributes?.url}
               alt={banner.Name}

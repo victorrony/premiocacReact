@@ -1,5 +1,5 @@
 const cN = "w-96 h-12 rounded-full p-2 px-6";
-export const Input = ({ set, label, twClass,type}) => (
+export const Input = ({ set, label, twClass, type }) => (
   <div className="form-group mb-6">
     <label className="block mb-2 text-sm font-bold text-white ">{label}</label>
     <input

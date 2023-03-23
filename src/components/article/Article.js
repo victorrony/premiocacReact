@@ -11,18 +11,23 @@ export default function Article() {
   const { user } = useAuth();
   const [voted, setVoted] = useState(null);
   const { loading, error, data } = useQuery(CONTESTANTS);
-  const { loading: voting, error: unvoted, data: votedd } = useQuery(VOTED, {
+  const {
+    loading: voting,
+    error: unvoted,
+    data: votedd,
+  } = useQuery(VOTED, {
     variables: {
-      usersPermissionsUserId: user?.id
+      usersPermissionsUserId: user?.id,
     },
     onCompleted: (data) => {
-      console.log("VOTED ID", data.usersPermissionsUser.data.attributes)
+      console.log("VOTED ID", data.usersPermissionsUser.data.attributes);
       if (data.usersPermissionsUser.data.attributes.voted) {
-
-        setVoted({ id: data.usersPermissionsUser.data.attributes.vote?.data.attributes.contestant.data.id });
-
+        setVoted({
+          id: data.usersPermissionsUser.data.attributes.vote?.data.attributes
+            .contestant.data.id,
+        });
       }
-    }
+    },
   });
   const { vote } = useApp();
 
@@ -30,19 +35,19 @@ export default function Article() {
     client.refetchQueries({
       include: [VOTED],
     });
-  }
+  };
 
   useEffect(() => {
     load();
-  }, [user])
+  }, [user]);
 
   if (loading) return "Loading";
   if (error) return "Error";
   console.log(data);
   return (
-    <div className="pb-24 m-auto sm:w-full md:w-4xl bg-main">
+    <div className="pb-20 m-auto sm:w-full md:w-4xl bg-main">
       <div className="text-3xl md:leading-[4rem] md:text-[54px] mt-24 mb-8 md:my-14 font-bold text-center text-white">
-        <h2> 
+        <h2>
           VOTE NO SEU MELHOR <br /> ATENDEDOR
         </h2>
       </div>

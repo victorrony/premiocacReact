@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 export default function Buttons({ action, label, twClass }) {
   return (
     <button
@@ -27,13 +26,16 @@ export const LinkButton = ({ label, url, twClass }) => {
   </Link>;
 };
 
-
-export const IconButtons = ({label, action, twClass, Icon }) =>
-    <button
+export const IconButtons = ({ label, action, twClass, Icon }) => (
+  <button
     type="submit"
-    className={"font-extrabold min-w-24 px-4 h-8 text-white flex items-center gap-4" + twClass}
+    className={
+      "font-extrabold min-w-24 px-4 h-8 text-white flex items-center gap-4" +
+      twClass
+    }
     onClick={action}
   >
     <div className="mr-3">{label}</div>
-    {Icon?<Icon />:null}
-  </button>;
+    {Icon ? <Icon /> : null}
+  </button>
+);

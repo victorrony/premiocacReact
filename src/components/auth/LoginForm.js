@@ -29,13 +29,13 @@ export default function LoginForm({}) {
       className="grid place-content-center p-10 gap-2"
     >
       <div className="">
+        <div className=" text-white text-center pb-12 text-3xl uppercase font-extrabold">
+          <h1>Login</h1>
+        </div>
         <div className="">
           <EmailAndPasswordFeild set={setCredentials} />
         </div>
-        <Buttons
-          twClass="!bg-main" 
-          label="Login"
-        />
+        <Buttons twClass="!bg-main" label="Login" />
       </div>
     </form>
   );

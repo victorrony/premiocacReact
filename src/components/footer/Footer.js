@@ -13,9 +13,9 @@ export default function Footer() {
         <Image
           width={400}
           height={200}
-          src="/other/logo2.png"
+          src="/other/logo_2.png"
           alt="logotipo"
-          className="my-8"
+          className="my-8 w-64"
         />
       </div>
       <div className="uppercase text-center text-white md:text-[50px] inline-block w-full">
