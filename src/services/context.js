@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
 
   const vote = async (id,{load}) => {
     await vt({
+      fetchPolicy: "no-cache",
       variables: {
         data: {
           contestant: id,

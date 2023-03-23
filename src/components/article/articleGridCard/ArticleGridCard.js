@@ -18,7 +18,7 @@ export default function ArticleGridCard({
         backgroundSize: "cover",
       }}
     >
-      <div className="hover:bg-black/25 bg-black/50 p-4 rounded-3xl ease-in-out text-white">
+      <div className="hover:bg-black/25 bg-black/50 p-4 h-full rounded-3xl ease-in-out text-white">
         <h1 className="font-bold mt-24">{name}</h1>
         <h2 className="mb-2">{description}</h2>
         {!vote? voted?<button disabled
