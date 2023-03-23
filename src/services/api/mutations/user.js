@@ -16,17 +16,19 @@ export const LOGIN = gql`
 `;
 
 export const REGISTER = gql`
-  mutation CreateUsersPermissionsUser($data: UsersPermissionsUserInput!) {
-    createUsersPermissionsUser(data: $data) {
-      data {
+mutation Register($input: UsersPermissionsRegisterInput!) {
+  register(input: $input) {
+    user {
+      username
+      id
+      role {
         id
-        attributes {
-          username
-        }
+        name
       }
     }
+    jwt
   }
-`;
+}`;
 
 export const UPDATE_LOCATION = gql`
   mutation UpdateUserLocation(

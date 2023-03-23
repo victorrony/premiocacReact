@@ -12,10 +12,13 @@ function HomePage() {
   return (
     <>
       <Header data={data} />
-      <SectionCard />
-      <Article />
-      <Footer />
-    </>
+      <div className="p-4">
+        <SectionCard />
+        <Article />
+        <Footer />
+      </div>
+      </>
+      
   );
 }
 

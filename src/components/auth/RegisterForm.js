@@ -24,7 +24,7 @@ export default function RegisterForm({ onSubmit }) {
             tel: credentials.tel,
             username: username,
           },
-          false
+          true
         )
       );
     } else {
@@ -48,7 +48,7 @@ export default function RegisterForm({ onSubmit }) {
         console.log("HERE");
       }}
     >
-      <Input set={setUN} label="UserName" />
+      <Input set={setUN} label="UserName" type="text" />
       <EmailAndPasswordFeild set={setCredentials} />
       <div className="text-white">
         <input

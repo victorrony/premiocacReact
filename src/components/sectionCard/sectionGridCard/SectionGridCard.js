@@ -18,10 +18,10 @@ export default function SectionGridCard({ title, description, i }) {
         {description}
       </p>
       <div>
-        <Buttons
+        {/* <Buttons
           label={"Ver Mais"}
           twClass={i % 2 != 0 ? "!bg-white !text-selected mt-2" : "mt-8"}
-        />
+        /> */}
       </div>
     </div>
   );

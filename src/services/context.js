@@ -9,8 +9,9 @@ export const AppProvider = ({ children }) => {
   const { user } = useAuth();
   const [vt] = useMutation(VOTE);
 
-  const vote = async (id) => {
+  const vote = async (id,{load}) => {
     await vt({
+      fetchPolicy: "no-cache",
       variables: {
         data: {
           contestant: id,
@@ -19,6 +20,7 @@ export const AppProvider = ({ children }) => {
       },
       onCompleted: (data) => {
         toast("Sucesso ao votar");
+        if(load) load();
       },
       onError: () => {
         toast("Nao Foi posivel Votar");

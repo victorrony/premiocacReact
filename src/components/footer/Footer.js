@@ -8,20 +8,20 @@ export default function Footer() {
   if (error) return "Error";
   if (loading) return "loading";
   return (
-    <div className="grid place-content-center">
+    <div className="grid place-content-center w-full">
       <div className="grid place-content-center">
         <Image
-          width={200}
-          height={100}
-          src="/other/logo.png"
+          width={400}
+          height={200}
+          src="/other/logo2.png"
           alt="logotipo"
           className="my-8"
         />
       </div>
-      <div className="uppercase text-center text-white text-[50px]">
+      <div className="uppercase text-center text-white md:text-[50px] inline-block w-full">
         <p>PATROCINADORES</p>
       </div>
-      <div className="grid grid-cols-5 gap-8 p-14 m-auto w-[1320px]">
+      <div className="grid grid-cols-6 gap-8 p-3 md:p-14 m-auto md:w-[1320px]">
         {data.sponsors?.data.map((s, i) => (
           <FooterGridItem
             key={i}

@@ -25,6 +25,17 @@ export const AuthProvider = ({ children }) => {
     }
   };
   //
+  const localLogin = (data,credentials) => {
+
+    
+          nookies.set(null, "jwt", data.login?.jwt || data.register?.jwt);
+          nookies.set(null, "login", JSON.stringify(credentials));
+          
+          console.log("Nada de mais", data.login?.jwt);
+          localStorage.setItem("token", data.login?.jwt || data.register?.jwt);
+          
+          setUser(data.login?.user || data.register?.jwt);
+  }
   const login = async (credentials, redirect) => {
     await log({
       variables: {
@@ -36,13 +47,9 @@ export const AuthProvider = ({ children }) => {
       },
       onCompleted: (data) => {
         try {
-          nookies.set(null, "jwt", data.login.jwt);
-          nookies.set(null, "login", JSON.stringify(credentials));
-          console.log("Nada de mais", data.login.jwt);
-          localStorage.setItem("token", data.login.jwt);
-          setUser(data.login.user);
+          localLogin(data)
           if (redirect) router.push("/");
-          console.log(data);
+          console.log(data,credentials);
         } catch (e) {
           return "Algo Ocoreu Errado: " + e;
         } finally {
@@ -60,25 +67,19 @@ export const AuthProvider = ({ children }) => {
   const register = async (credentials, redirect) => {
     await reg({
       variables: {
-        data: {
+        input: {
           //provider: credentials.provider,
           password: credentials.password,
           username: credentials.username,
           email: credentials.email,
-          //phone: credentials.tel
         },
       },
       onCompleted: (data) => {
         try {
           toast("Sucesso em Criar conta");
-          log({
-            identifier: credentials.email,
-            password: credentials.password,
-            provider: "local",
-          });
-          console.log(data);
-          router.push("/login");
-          toast("Por favor faça Login");
+          localLogin(data,credentials);
+          if (redirect) router.push("/");
+          //toast("Por favor faça Login");
         } catch (e) {
           return "Algo Ocoreu Errado: " + e;
         } finally {
@@ -101,7 +102,7 @@ export const AuthProvider = ({ children }) => {
       c = JSON.parse(cookies.login);
       console.log(c);
       //login(c);
-      console.log(login(c));
+      login(c);
     } catch (e) {
       console.log(e);
       setUser(null);
