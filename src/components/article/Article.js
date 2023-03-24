@@ -55,7 +55,7 @@ export default function Article() {
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
             voted={voted?.id == a.id ? true : false}
-            vote={voted ? null : () => vote(a.id, { load: load })}
+            vote={voted && user ? null : () => vote(a.id, { load: load })}
             key={i}
             name={a.attributes?.name}
             img={a.attributes.portrait?.data.attributes}

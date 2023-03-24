@@ -17,14 +17,13 @@ export const AuthProvider = ({ children }) => {
 
   //The LocgoutFunction
 
-  const logOut = async () => {
+  const logOut = async (fu) => {
     try {
       nookies.destroy(null, "login");
       localStorage.removeItem("token");
       setUser(null);
     } catch (e) {
     } finally {
-     
     }
   };
   //
@@ -80,8 +79,7 @@ export const AuthProvider = ({ children }) => {
       onCompleted: (data) => {
         try {
           toast("Sucesso em Criar conta");
-          localLogin(data,credentials);
-          if (redirect) router.push("/");
+          if (redirect) router.push("/confirmed");
           //toast("Por favor faça Login");
         } catch (e) {
           return "Algo Ocoreu Errado: " + e;

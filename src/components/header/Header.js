@@ -3,11 +3,11 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IconButtons } from "../utils/Buttons";
+import { IconButtons, LinkButton } from "../utils/Buttons";
 import { useAuth } from "@/services/auth";
 import { useRouter } from "next/router";
 
-export default function Header({fu, data }) {
+export default function Header({ data }) {
   const settings = {
     arrows: false,
     dots: true,
@@ -25,11 +25,13 @@ export default function Header({fu, data }) {
   return (
     <>
       <div className="z-50 left-10 top-5 absolute">
-        <Image src={"/other/logo.png"} width={100} height={60} />
+        <Image src={"/other/logo.png"} width={100} height={60} />    
+        <LinkButton label={"voltar"} className="z-50"/>
       </div>
+
       <div className="z-50 right-10 top-5 absolute flex">
         {user ? (
-          <IconButtons Icon={Icon} label="Logout" action={()=>{router.push("/login");logOut()}} />
+          <IconButtons Icon={Icon} label="Logout" action={()=>logOut()} />
         ) : (
           <>
             <IconButtons

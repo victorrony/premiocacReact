@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Buttons({ action, label, twClass }) {
+export default function Buttons({ action, label, twClass,type }) {
   return (
     <button
-      type="submit"
+      type={type || "button"}
       onClick={action}
       className={
         "font-extrabold min-w-24 px-4 h-8 bg-selected text-white rounded-3xl " +

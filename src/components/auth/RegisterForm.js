@@ -3,9 +3,11 @@ import { EmailAndPasswordFeild, Input } from "../utils/Fields";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Buttons, { LinkButton } from "../utils/Buttons";
+import { useRouter } from "next/router";
 
 export default function RegisterForm({ onSubmit }) {
   const { user, register } = useAuth();
+  const router = useRouter()
   const [credentials, setCredentials] = useState({
     email: "",
     password: null,
@@ -48,7 +50,6 @@ export default function RegisterForm({ onSubmit }) {
         console.log("HERE");
       }}
     >
-      
       <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
         <h1>Registre-se</h1>
       </div>
@@ -62,16 +63,21 @@ export default function RegisterForm({ onSubmit }) {
           }}
           name="paymet"
           type="checkbox"
-          className="mr-4"
+          className="mr-4 mb-6"
           id="accept"
         />
         Aceite os termos de Privacidade
       </div>
-      <div className="">
-        <div className=""></div>
-        <Buttons label={"Registrar"} twClass="!bg-main" />
-        <LinkButton url="" label="Não possui uma conta? Registe-se aqui" />
-      </div>
+      <div className="text-center m">
+        <Buttons label={"Registrar"} type="submit" twClass="!bg-main " />
+        </div>
+        <div className=" text-white text-center mt-6">
+        <Buttons
+              action={()=>router.push("/login")}
+              label="Não possui uma conta? Registe-se aqui"              
+            />
+        </div>
+        
     </form>
   );
 }
