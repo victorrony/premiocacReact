@@ -32,7 +32,7 @@ export default function LoginForm({}) {
         }}
         className="grid place-content-center p-10 gap-2"
       >
-         <Buttons label="&#8592; Voltar" twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute" />
+         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute" />
         <div className="">
           <div className=" text-white text-center pb-12 text-3xl uppercase font-extrabold">
             <h1>Login</h1>
