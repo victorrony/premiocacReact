@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { IconButtons, LinkButton } from "../utils/Buttons";
 import { useAuth } from "@/services/auth";
 import { useRouter } from "next/router";
+import { split } from "@apollo/client";
 
 export default function Header({ data }) {
   const settings = {
@@ -25,13 +26,13 @@ export default function Header({ data }) {
   return (
     <>
       <div className="z-50 left-10 top-5 absolute">
-        <Image src={"/other/logo.png"} width={100} height={60} />    
-        <LinkButton label={"voltar"} className="z-50"/>
+        <Image src={"/other/logo.png"} width={100} height={60} />
+        <LinkButton label={"voltar"} className="z-50" />
       </div>
 
       <div className="z-50 right-10 top-5 absolute flex">
         {user ? (
-          <IconButtons Icon={Icon} label="Logout" action={()=>logOut()} />
+          <IconButtons Icon={Icon} label="Logout" action={() => logOut()} />
         ) : (
           <>
             <IconButtons
@@ -50,12 +51,12 @@ export default function Header({ data }) {
       <Slider {...settings}>
         {data.sliders.data[0].attributes.pictures.data.map((banner, index) => (
           <div key={index} className="flex relative h-[60vh]">
-            <div className="flex justify-left z-10 max-w-screen-2xl -mt-155 container">
+            <div className="grid place-content-center z-10 -mt-155">
               <div className="z-50 text-center grid place-content-center text-white h-[60vh] w-full">
-                <h1 className="font-extrabold text-[45px] text-center">
-                  PRÉMIO
+                <h1 className="font-extrabold text-[75px] w-full text-center uppercase">
+                  {data.sliders.data[0].attributes.title?.split(" ")[0]}
                   <br />
-                  CASA AMIGA DO CLIENTE
+                  {data.sliders.data[0].attributes.title?.split(" ").slice(1,).map(a => a + " ")}
                 </h1>
               </div>
             </div>
