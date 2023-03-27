@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { IconButtons, LinkButton } from "../utils/Buttons";
 import { useAuth } from "@/services/auth";
 import { useRouter } from "next/router";
-import { split } from "@apollo/client";
+
 
 export default function Header({ data }) {
   const settings = {

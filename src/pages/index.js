@@ -3,7 +3,6 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import SectionCard from "@/components/sectionCard/SectionCard";
 import { useQuery } from "@apollo/client";
-import { useCallback, useState } from "react";
 import { SLIDERS } from "../services/api/queries";
 
 function HomePage() {

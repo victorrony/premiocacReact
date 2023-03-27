@@ -2,12 +2,12 @@ import { useAuth } from "@/services/auth";
 import { EmailAndPasswordFeild, Input } from "../utils/Fields";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import Buttons, { LinkButton } from "../utils/Buttons";
+import Buttons from "../utils/Buttons";
 import { useRouter } from "next/router";
 
 export default function RegisterForm({ onSubmit }) {
   const { user, register } = useAuth();
-  const router = useRouter()
+  const router = useRouter();
   const [credentials, setCredentials] = useState({
     email: "",
     password: null,
@@ -46,10 +46,13 @@ export default function RegisterForm({ onSubmit }) {
         } else if (String(credentials.password).length >= 6) {
           submit();
         } else toast("Algo ocorreu errado");
-
       }}
     >
-         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute" />
+      <Buttons
+        action={() => router.push("/")}
+        label="&#8592; Voltar"
+        twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute"
+      />
       <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
         <h1>Registre-se</h1>
       </div>
@@ -74,10 +77,9 @@ export default function RegisterForm({ onSubmit }) {
       <div className=" text-white text-center mt-6">
         <Buttons
           action={() => router.push("/login")}
-          label="Não possui uma conta? Registe-se aqui"
+          label="Faça login aqui."
         />
       </div>
-
     </form>
   );
 }

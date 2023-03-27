@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { EmailAndPasswordFeild } from "../utils/Fields";
 import { useAuth } from "@/services/auth";
-import Buttons, { LinkButton } from "../utils/Buttons";
-import Link from "next/link";
+import Buttons from "../utils/Buttons";
 import { useRouter } from "next/router";
 
 export default function LoginForm({}) {
@@ -37,7 +36,7 @@ export default function LoginForm({}) {
           <div className=" text-white text-center pb-12 text-3xl uppercase font-extrabold">
             <h1>Login</h1>
           </div>
-          <div className="">
+          <div>
             <EmailAndPasswordFeild set={setCredentials} />
           </div>
           <div className="text-center mb-6">
@@ -45,7 +44,6 @@ export default function LoginForm({}) {
           </div>
           <div className=" text-white text-center">
             <Buttons
-
               action={()=>router.push("/register")}
               label="Não possui uma conta? Registe-se aqui"              
             />

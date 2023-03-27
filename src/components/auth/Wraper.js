@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Buttons, { LinkButton } from "../utils/Buttons";
+
 
 export default function Wraper({ children }) {
   return (

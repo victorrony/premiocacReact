@@ -1,7 +1,6 @@
 import { FAGS } from "@/services/api/queries/fags";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import { Input } from "../utils/Fields";
 import SectionGridCard from "./sectionGridCard/SectionGridCard";
 
 export default function SectionCard() {
