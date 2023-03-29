@@ -51,7 +51,7 @@ export default function RegisterForm({ onSubmit }) {
       <Buttons
         action={() => router.push("/")}
         label="&#8592; Voltar"
-        twClass="mt-[-10px] ml-[-15px] !bg-black absolute"
+        twClass="mt-[-10px] ml-[-15px] !bg-transparent absolute"
       />
       <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
         <h1>Registre-se</h1>

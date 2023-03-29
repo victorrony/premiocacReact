@@ -31,7 +31,7 @@ export default function LoginForm({}) {
         }}
         className="grid place-content-center p-4 gap-4"
       >
-         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-10px] ml-[-15px] !bg-black absolute" />
+         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-10px] ml-[-15px] !bg-transparent absolute" />
         <div className="">
           <div className=" text-white text-center pb-12 text-3xl uppercase font-extrabold">
             <h1>Login</h1>
