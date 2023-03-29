@@ -30,7 +30,7 @@ export default function Header({ data }) {
         <LinkButton label={"voltar"} className="z-50" />
       </div>
 
-      <div className="z-50 right-10 top-5 absolute flex">
+      <div className="z-50 right-4 top-5 absolute flex">
         {user ? (
           <IconButtons Icon={Icon} label="Logout" action={() => logOut()} />
         ) : (
@@ -53,7 +53,7 @@ export default function Header({ data }) {
           <div key={index} className="flex relative h-[60vh]">
             <div className="grid place-content-center z-10 -mt-155">
               <div className="z-50 text-center grid place-content-center text-white h-[60vh] w-full">
-                <h1 className="font-extrabold text-[75px] w-full text-center uppercase">
+                <h1 className="font-extrabold text-[35px] sm:text-[55px] w-full text-center uppercase ">
                   {data.sliders.data[0].attributes.title?.split(" ")[0]}
                   <br />
                   {data.sliders.data[0].attributes.title?.split(" ").slice(1,).map(a => a + " ")}

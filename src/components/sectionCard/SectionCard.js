@@ -10,7 +10,7 @@ export default function SectionCard() {
   if (loading) return "Loading";
   console.log(data);
   return (
-    <div className="grid pt-16">
+    <div className="grid h-auto pt-16">
       <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-8 m-auto place-content-center max-w-4xl">
         {data.faqs.data?.map((f, i) => (
           <SectionGridCard

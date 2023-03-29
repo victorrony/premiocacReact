@@ -6,8 +6,6 @@ import { toast } from "react-toastify";
 import { useMutation } from "@apollo/client";
 import { LOGIN, REGISTER } from "./api/mutations/user";
 
-
-
 export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -27,17 +25,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
   //
-  const localLogin = (data,credentials) => {
+  const localLogin = (data, credentials) => {
+    nookies.set(null, "jwt", data.login?.jwt || data.register?.jwt);
+    nookies.set(null, "login", JSON.stringify(credentials));
 
-    
-          nookies.set(null, "jwt", data.login?.jwt || data.register?.jwt);
-          nookies.set(null, "login", JSON.stringify(credentials));
-          
-          console.log("Nada de mais", data.login?.jwt);
-          localStorage.setItem("token", data.login?.jwt || data.register?.jwt);
-          
-          setUser(data.login?.user || data.register?.jwt);
-  }
+    console.log("Nada de mais", data.login?.jwt);
+    localStorage.setItem("token", data.login?.jwt || data.register?.jwt);
+
+    setUser(data.login?.user || data.register?.jwt);
+  };
   const login = async (credentials, redirect) => {
     await log({
       variables: {
@@ -49,9 +45,9 @@ export const AuthProvider = ({ children }) => {
       },
       onCompleted: (data) => {
         try {
-          localLogin(data)
+          localLogin(data);
           if (redirect) router.push("/");
-          console.log(data,credentials);
+          console.log(data, credentials);
         } catch (e) {
           return "Algo Ocoreu Errado: " + e;
         } finally {

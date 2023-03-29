@@ -2,7 +2,7 @@ const { gql } = require("@apollo/client");
 
 export const CONTESTANTS = gql `
 query Attributes {
-    contestants {
+    contestants(pagination:{pageSize:20}) {
       data {
         attributes {
           createdAt

@@ -6,7 +6,7 @@ export default function Buttons({ action, label, twClass,type }) {
       type={type || "button"}
       onClick={action}
       className={
-        "font-extrabold min-w-24 px-4 h-8 bg-selected text-white rounded-3xl " +
+        "font-extrabold min-w-24 px-4 h-8 pt-0 bg-selected text-white rounded-3xl " +
         twClass
       }
     >

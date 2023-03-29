@@ -21,13 +21,13 @@ export default function ArticleGridCard({
       }}
     >
       <div className="hover:bg-black/25 bg-black/50 p-4 h-full rounded-3xl ease-in-out text-white">
-        <h1 className="font-bold mt-24">{name}</h1>
-        <h2 className="mb-2">{description}</h2>
+        <h1 className="font-bold mt-24 ">{name}</h1>
+        <h2 className="mb-1 ">{description}</h2>
         {!vote ? (
           voted ? (
             <button
               disabled
-              className="font-extrabold min-w-24 px-4 h-8 bg-white text-black rounded-3xl "
+              className="font-extrabold  min: w-24 px-4 h-8 bg-white text-black rounded-3xl "
             >
               VOTADO
             </button>
@@ -39,6 +39,7 @@ export default function ArticleGridCard({
         ) : (
           <Buttons
             label="Login para Votar"
+            twClass="text-[11.5px] h-10 md:text-[16px] "
             action={() => router.push("/login")}
           />
         )}

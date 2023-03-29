@@ -18,10 +18,10 @@ export default function Footer() {
           className="my-8 w-64"
         />
       </div>
-      <div className="uppercase text-center text-white md:text-[50px] inline-block w-full">
+      <div className="uppercase text-center pb-5 text-[22px] text-white md:text-[50px] inline-block w-full">
         <p>PATROCINADORES</p>
       </div>
-      <div className="grid grid-cols-6 gap-8 p-3 md:p-14 m-auto md:w-[1320px]">
+      <div className="grid grid-cols-4 gap-4 p-3 place-items-center md:grid-cols-6 m-auto md:w-[1270px]">
         {data.sponsors?.data.map((s, i) => (
           <FooterGridItem
             key={i}

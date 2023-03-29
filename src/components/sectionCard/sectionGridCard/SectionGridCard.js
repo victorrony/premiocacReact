@@ -1,9 +1,18 @@
-import Buttons from "@/components/utils/Buttons";
+/*import Buttons from "@/components/utils/Buttons";
+import { useState } from "react";*/
 
 export default function SectionGridCard({ title, description, i }) {
+  //const [expanded, setExpanded] = useState(false);
+
+
+ /* function handleClick () {
+    setExpanded(!expanded);
+    console.log(handleClick)
+  }*/
+
   return (
     <div
-      className={`rounded-3xl p-4 flex justify-between flex-col ${
+      className={`rounded-3xl expanded-full p-4 flex justify-between flex-col ${
         i % 2 == 0 ? "bg-secondary" : "bg-selected"
       } `}
     >
@@ -17,9 +26,10 @@ export default function SectionGridCard({ title, description, i }) {
       <p className="font-bold text-sm text-white p-2 ">{description}</p>
       <div>
         {/* <Buttons
-          label={"Ver Mais"}
+          label={ expanded? "Ver Menus" : "Ver Mais"}
+          action={handleClick}
           twClass={i % 2 != 0 ? "!bg-white !text-selected mt-2" : "mt-8"}
-        /> */}
+      /> */}
       </div>
     </div>
   );

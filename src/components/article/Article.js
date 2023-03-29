@@ -45,13 +45,13 @@ export default function Article() {
   if (error) return "Error";
   console.log(data);
   return (
-    <div className="pb-20 m-auto sm:w-full md:w-4xl bg-main">
-      <div className="text-3xl md:leading-[4rem] md:text-[54px] mt-24 mb-8 md:my-14 font-bold text-center text-white">
+    <div className="pb-8 m-auto h-auto sm:w-full md:w-4xl bg-main">
+      <div className="text-3xl md:leading-[4rem] md:text-[54px] mt-24 mb-6 md:my-14 font-bold text-center text-white">
         <h2>
           VOTE NO SEU MELHOR <br /> ATENDEDOR
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 md:w-[1130px] gap-10 p-6 rounded-[40px] mx-auto bg-white">
+      <div className="grid grid-cols-2 md:grid-cols-4 md:w-[1130px] gap-6 p-6 rounded-[40px] mx-auto bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
             voted={voted?.id == a.id ? true : false}
