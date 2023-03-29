@@ -29,9 +29,9 @@ export default function LoginForm({}) {
           submit();
           console.log("HERE");
         }}
-        className="grid place-content-center p-10 gap-2"
+        className="grid place-content-center p-4 gap-4"
       >
-         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute" />
+         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-10px] ml-[-15px] !bg-black absolute" />
         <div className="">
           <div className=" text-white text-center pb-12 text-3xl uppercase font-extrabold">
             <h1>Login</h1>

@@ -36,7 +36,7 @@ export default function RegisterForm({ onSubmit }) {
   };
   return (
     <form
-      className=" place-content-center p-10 gap-2 "
+      className=" place-content-center p-4 gap-2 "
       onSubmit={(e) => {
         e.preventDefault();
         if (!credentials.password) {
@@ -51,7 +51,7 @@ export default function RegisterForm({ onSubmit }) {
       <Buttons
         action={() => router.push("/")}
         label="&#8592; Voltar"
-        twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute"
+        twClass="mt-[-10px] ml-[-15px] !bg-black absolute"
       />
       <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
         <h1>Registre-se</h1>
