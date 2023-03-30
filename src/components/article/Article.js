@@ -51,7 +51,7 @@ export default function Article() {
           VOTE NO SEU MELHOR <br /> ATENDEDOR
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 md:w-[1130px] gap-6 p-6 rounded-[40px] mx-auto bg-white">
+      <div className="grid grid-cols-2 md:grid-cols-3 md:w-full lg:grid-cols-4 lg:w-[1200px] gap-6 p-6 rounded-[40px] mx-auto bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
             voted={voted?.id == a.id ? true : false}
