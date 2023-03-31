@@ -12,7 +12,7 @@ export default function SectionGridCard({ title, description, i }) {
 
   return (
     <div
-      className={`hover:h-full  w-96 h-60 md:w-72 md:hover:h-full rounded-3xl p-2 flex justify-between flex-col ${
+      className={`hover:h-full  w-96 h-48 md:h-72 md:hover:h-full rounded-3xl p-2 flex justify-between flex-col ${
         i % 2 == 0 ? "bg-secondary" : "bg-selected"
       } `}
     >
