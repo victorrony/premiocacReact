@@ -33,13 +33,12 @@ export default function Videos({}) {
   return (
     <div className="text-3xl mt-24 ">
       {
-        <div className="grid relative mb-14 place-items-center ">
+        <div className="grid relative md:w-100% place-items-center ">
           {videos.map((banner, index) => (
             <div key={index} className="flex relative ">
               <iframe
-                src={banner.attributes?.url}
-                width={700}
-                height={500}
+                src={banner.attributes?.url} 
+                className="w-96 h-96 md:w-[700px] md:h-[400px]"               
               ></iframe>
             </div>
           ))}
