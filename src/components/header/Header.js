@@ -25,9 +25,10 @@ export default function Header({ data }) {
   const Icon = () => <Image src="/other/user.svg" width={10} height={10} />;
   return (
     <>
-      <div className="z-50 left-10 top-5 absolute">
-        <Image src={"/other/logo.png"} width={100} height={60} />
-        <LinkButton label={"voltar"} className="z-50" />
+      <div className="z-50 left-10 top-5 absolute ">
+        <Image src={"/other/logo.png"} width={100} height={60} className="inline-block" />
+        <Image src={"/other/selo.png"} width={70} height={60} className="inline-block ml-3" />
+
       </div>
 
       <div className="z-50 right-4 top-5 absolute flex">
@@ -51,15 +52,7 @@ export default function Header({ data }) {
       <Slider {...settings}>
         {data.sliders.data[0].attributes.pictures.data.map((banner, index) => (
           <div key={index} className="flex relative h-[60vh]">
-            <div className="grid place-content-center z-10 -mt-155">
-              <div className="z-50 text-center grid place-content-center text-white h-[60vh] w-full">
-                <h1 className="font-extrabold text-[35px] sm:text-[55px] w-full text-center uppercase ">
-                  {data.sliders.data[0].attributes.title?.split(" ")[0]}
-                  <br />
-                  {data.sliders.data[0].attributes.title?.split(" ").slice(1,).map(a => a + " ")}
-                </h1>
-              </div>
-            </div>
+            
             <Image
               style={{ objectFit: "cover" }}
               className="relative"

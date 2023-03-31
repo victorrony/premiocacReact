@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       },
       onCompleted: (data) => {
         try {
-          localLogin(data);
+          localLogin(data,credentials);
           if (redirect) router.push("/");
           console.log(data, credentials);
         } catch (e) {

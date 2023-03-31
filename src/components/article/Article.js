@@ -6,6 +6,7 @@ import { useApp } from "@/services/context";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import ArticleGridCard from "./articleGridCard/ArticleGridCard";
+import Image from "next/image";
 
 export default function Article() {
   const { user } = useAuth();
@@ -46,11 +47,7 @@ export default function Article() {
   console.log(data);
   return (
     <div className="pb-8 m-auto h-auto sm:w-full md:w-4xl bg-main">
-      <div className="text-3xl md:leading-[4rem] md:text-[54px]  mb-6 md:my-14 font-bold text-center text-white">
-        <h2>
-          VOTE NO SEU MELHOR <br /> ATENDEDOR
-        </h2>
-      </div>
+      
       <div className="grid grid-cols-2 md:grid-cols-3 md:w-full lg:grid-cols-4 lg:w-[1200px] gap-6 p-6 rounded-[40px] mx-auto bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard

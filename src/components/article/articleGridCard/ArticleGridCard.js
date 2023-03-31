@@ -12,18 +12,21 @@ export default function ArticleGridCard({
   const { user } = useAuth();
   const router = useRouter();
   return (
+    <div>
+      <div>
+      <h1 className=" mt-10 font-bold">{name}</h1>
+      <h2 className="mb-1 text-xs ">{description}</h2>
+      </div>
     <div
-      className="max-h-1/2 text-left rounded-3xl h-full"
-      onClick={() => router.push("/login")}
+      className="max-h-1/2 text-left rounded-3xl h-64 "
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL + img.url})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
     >
-      <div className="hover:bg-black/25 bg-black/50 p-4 h-full rounded-3xl ease-in-out text-white">
-        <h1 className="font-bold mt-24 ">{name}</h1>
-        <h2 className="mb-1 ">{description}</h2>
+      <div className="h-full">
+      <div className="hover:bg-black/25 bg-black/50 p-4 h-full rounded-3xl ease-in-out text-white flex flex-col justify-end items-center ">
         {!vote ? (
           voted ? (
             <button
@@ -32,10 +35,21 @@ export default function ArticleGridCard({
             >
               VOTADO
             </button>
-          ) : (user && <Buttons label="Votar" action={vote} />
-        )
-        ): null} 
+          ) : (
+            <button className="h-8"></button>
+          )
+        ) : user ? (
+          <Buttons label="Votar" action={vote} />
+        ) : (
+          <Buttons
+            label="Login para Votar"
+            twClass="text-xs  h-10 md:text-xs p-1 "
+            action={() => router.push("/login")}
+          />
+        )}
       </div>
+      </div>
+    </div>
     </div>
   );
 }
