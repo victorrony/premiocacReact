@@ -12,25 +12,25 @@ export default function SectionGridCard({ title, description, i }) {
 
   return (
     <div
-      className={` rounded-3xl p-4 flex justify-between flex-col ${
+      className={`hover:h-full  w-96 h-60 md:w-72 md:hover:h-full rounded-3xl p-2 flex justify-between flex-col ${
         i % 2 == 0 ? "bg-secondary" : "bg-selected"
       } `}
     >
       <h1
-        className={`uppercase text-xl font-extrabold p-2 ${
+        className={`uppercase text-xl font-extrabold p-4 ${
           i % 2 == 0 ? "text-selected" : "text-main"
         }`}
       >
         {title}
       </h1>
-      <p className="h-36 text-ellipsis overflow-hidden .expanded-w-full md:h-72 font-bold text-sm text-white p-2 ">{description}</p>
+      <p className=" text-ellipsis overflow-hidden  font-bold text-sm text-white p-2 ">{description}</p>
       <div>
         
-        { <Buttons
+        { /*<Buttons
           label={ expanded? "Ver Menus" : "Ver Mais"}
           action={()=> setExpanded}
-          twClass={i % 2 != 0 ? "!bg-white !text-selected mt-2" : "mt-8"}
-      /> }
+          twClass={i % 2 != 0 ? "!bg-white p-4 !text-selected mt-2" : "mt-8"}
+      /> */}
       </div>
     </div>
   );

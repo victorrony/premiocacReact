@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="uppercase text-center pb-5 text-[22px] text-white md:text-[50px] inline-block w-full">
         <p>PATROCINADORES</p>
       </div>
-      <div className="grid grid-cols-3 gap-4 p-3 sm:grid-cols-5 md:grid-cols-7 md:w-max lg:grid-cols-8 xl:grid-cols-10 m-auto ">
+      <div className="grid grid-cols-4 gap-4 p-3 sm:grid-cols-5 md:grid-cols-7 md:w-max lg:grid-cols-8 xl:grid-cols-10 m-auto ">
         {data.sponsors?.data.map((s, i) => (
           <FooterGridItem
             key={i}

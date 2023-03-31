@@ -14,6 +14,7 @@ export default function ArticleGridCard({
   return (
     <div
       className="max-h-1/2 text-left rounded-3xl h-full"
+      onClick={() => router.push("/login")}
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL + img.url})`,
         backgroundRepeat: "no-repeat",
@@ -31,18 +32,9 @@ export default function ArticleGridCard({
             >
               VOTADO
             </button>
-          ) : (
-            <button className="h-8"></button>
-          )
-        ) : user ? (
-          <Buttons label="Votar" action={vote} />
-        ) : (
-          <Buttons
-            label="Login para Votar"
-            twClass="text-[11.5px] h-10 md:text-[16px] "
-            action={() => router.push("/login")}
-          />
-        )}
+          ) : (user && <Buttons label="Votar" action={vote} />
+        )
+        ): null} 
       </div>
     </div>
   );

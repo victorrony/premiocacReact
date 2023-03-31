@@ -10,8 +10,8 @@ export default function SectionCard() {
   if (loading) return "Loading";
   console.log(data);
   return (
-    <div className="grid h-auto pt-16">
-      <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-8 m-auto place-content-center max-w-4xl">
+    <div className="grid  pt-16">
+      <div className="grid gap-4 m-auto place-content-center h-full   md:grid-cols-3  md:gap-9">
         {data.faqs.data?.map((f, i) => (
           <SectionGridCard
             key={i}
@@ -20,7 +20,7 @@ export default function SectionCard() {
             title={f.attributes.title}
             description={f.attributes.description}
           />
-        ))}
+        ))};
       </div>
     </div>
   );

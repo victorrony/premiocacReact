@@ -9,6 +9,7 @@ export default function Confirmed() {
       <div className="grid place-content-center p-10 gap-2">
         <div className="text-white text-center pb-12 text-3xl uppercase font-extrabold">
           <h1>Verifique seu email para authenticar sua conta </h1>
+          <p>Verifique se Email nao caiu no span</p>
         </div>
         <Buttons action={()=>router.push("/")} label="&#8592; Voltar" twClass="mt-[-32px] ml-[-42px] !bg-transparent absolute" />
       </div>

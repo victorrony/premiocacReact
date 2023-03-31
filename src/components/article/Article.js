@@ -46,7 +46,7 @@ export default function Article() {
   console.log(data);
   return (
     <div className="pb-8 m-auto h-auto sm:w-full md:w-4xl bg-main">
-      <div className="text-3xl md:leading-[4rem] md:text-[54px] mt-24 mb-6 md:my-14 font-bold text-center text-white">
+      <div className="text-3xl md:leading-[4rem] md:text-[54px]  mb-6 md:my-14 font-bold text-center text-white">
         <h2>
           VOTE NO SEU MELHOR <br /> ATENDEDOR
         </h2>
