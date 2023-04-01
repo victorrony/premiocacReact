@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,6 +9,11 @@ import { useRouter } from "next/router";
 
 
 export default function Header({ data }) {
+  const [screen,setScreen] = useState(window.screen.width)
+  useEffect(()=> {
+    setScreen(window.screen.width)
+    alert(screen)
+  },[,window.screenX])
   const settings = {
     arrows: false,
     dots: true,
@@ -25,10 +30,21 @@ export default function Header({ data }) {
   const Icon = () => <Image src="/other/user.svg" width={10} height={10} />;
   return (
     <>
-      <div className="z-50 left-10 top-5 absolute ">
-        <Image src={"/other/logo.png"} width={100} height={60} className="inline-block" />
-        <Image src={"/other/selo.png"} width={70} height={60} className="inline-block ml-3" />
-
+      <div className="z-20 left-10 top-5 absolute ">
+        {
+          screen < 720?
+          <div>
+            
+          <Image src={"/other/logo.png"} width={50} height={30} className="inline-block" />
+          <Image src={"/other/selo.png"} width={35} height={30} className="inline-block ml-3" />\
+          </div>
+          :
+          <div>
+          <Image src={"/other/logo.png"} width={100} height={60} className="inline-block" />
+          <Image src={"/other/selo.png"} width={70} height={60} className="inline-block ml-3" />
+          </div>
+        }
+       
       </div>
 
       <div className="z-50 right-4 top-5 absolute flex">

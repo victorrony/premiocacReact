@@ -20,7 +20,7 @@ export default function Promotion({ dataPromotion }) {
                   banner.image?.data?.attributes?.url
                 }
               /> */}
-               <img src={process.env.NEXT_PUBLIC_API_URL + banner.attributes?.url}  alt="img" className="h-96" /> 
+               <img src={process.env.NEXT_PUBLIC_API_URL + banner.attributes?.url}  alt="img" className="md:h-96" /> 
             </div>
           )
         )}

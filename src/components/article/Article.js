@@ -48,7 +48,7 @@ export default function Article() {
   return (
     <div className="pb-8 m-auto h-auto sm:w-full md:w-4xl bg-main">
       
-      <div className="grid grid-cols-2 md:grid-cols-3 md:w-full lg:grid-cols-4 lg:w-[1200px] gap-6 p-6 rounded-[40px] mx-auto bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:w-full lg:grid-cols-4 lg:w-[1200px] gap-6 p-6 rounded-[40px] mx-auto bg-white">
         {data.contestants?.data.map((a, i) => (
           <ArticleGridCard
             voted={voted?.id == a.id ? true : false}

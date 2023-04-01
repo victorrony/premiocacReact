@@ -18,7 +18,7 @@ export default function ArticleGridCard({
       <h2 className="mb-1 text-xs ">{description}</h2>
       </div>
     <div
-      className="max-h-1/2 text-left rounded-3xl h-64 "
+      className="max-h-1/2 text-left rounded-3xl h-96 md:h-64 "
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL + img.url})`,
         backgroundRepeat: "no-repeat",

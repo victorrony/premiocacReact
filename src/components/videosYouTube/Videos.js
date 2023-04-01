@@ -38,7 +38,7 @@ export default function Videos({}) {
             <div key={index} className="flex relative ">
               <iframe
                 src={banner.attributes?.url} 
-                className="w-96 h-96 md:w-[700px] md:h-[400px]"               
+                className="w-full h-full md:w-[700px] md:h-[400px]"               
               ></iframe>
             </div>
           ))}
