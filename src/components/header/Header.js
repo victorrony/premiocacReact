@@ -12,7 +12,6 @@ export default function Header({ data }) {
   const [screen,setScreen] = useState(window.screen.width)
   useEffect(()=> {
     setScreen(window.screen.width)
-    alert(screen)
   },[,window.screenX])
   const settings = {
     arrows: false,
