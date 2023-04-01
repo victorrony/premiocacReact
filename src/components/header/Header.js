@@ -30,7 +30,7 @@ export default function Header({ data }) {
   const Icon = () => <Image src="/other/user.svg" width={10} height={10} />;
   return (
     <>
-      <div className="z-20 left-10 top-5 absolute ">
+      <div className="z-20 left-5 md:left-10 top-5 absolute ">
         {
           screen < 720?
           <div>
