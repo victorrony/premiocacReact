@@ -7,12 +7,11 @@ import { IconButtons, LinkButton } from "../utils/Buttons";
 import { useAuth } from "@/services/auth";
 import { useRouter } from "next/router";
 
-
 export default function Header({ data }) {
-  const [screen,setScreen] = useState(window.screen.width)
-  useEffect(()=> {
-    setScreen(window.screen.width)
-  },[,window.screenX])
+  const [screen, setScreen] = useState(window.screen.width);
+  useEffect(() => {
+    setScreen(window.screen.width);
+  }, [, window.screenX]);
   const settings = {
     arrows: false,
     dots: true,
@@ -30,20 +29,38 @@ export default function Header({ data }) {
   return (
     <>
       <div className="z-20 left-5 md:left-10 top-5 absolute ">
-        {
-          screen < 720?
+        {screen < 720 ? (
           <div>
-            
-          <Image src={"/other/logo.png"} width={50} height={30} className="inline-block" />
-          <Image src={"/other/selo.png"} width={35} height={30} className="inline-block ml-3" />\
+            <Image
+              src={"/other/logo.png"}
+              width={50}
+              height={30}
+              className="inline-block"
+            />
+            <Image
+              src={"/other/selo.png"}
+              width={35}
+              height={30}
+              className="inline-block ml-3"
+            />
+            \
           </div>
-          :
+        ) : (
           <div>
-          <Image src={"/other/logo.png"} width={100} height={60} className="inline-block" />
-          <Image src={"/other/selo.png"} width={70} height={60} className="inline-block ml-3" />
+            <Image
+              src={"/other/logo.png"}
+              width={100}
+              height={60}
+              className="inline-block"
+            />
+            <Image
+              src={"/other/selo.png"}
+              width={70}
+              height={60}
+              className="inline-block ml-3"
+            />
           </div>
-        }
-       
+        )}
       </div>
 
       <div className="z-50 right-4 top-5 absolute flex">
@@ -67,7 +84,6 @@ export default function Header({ data }) {
       <Slider {...settings}>
         {data.sliders.data[0].attributes.pictures.data.map((banner, index) => (
           <div key={index} className="flex relative h-[60vh]">
-            
             <Image
               style={{ objectFit: "cover" }}
               className="relative"

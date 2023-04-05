@@ -10,27 +10,18 @@ import { VIDEOS } from "../services/api/queries";
 import Videos from "@/components/videosYouTube/Videos";
 
 function HomePage() {
-
-
-
-  
   const { loading, error, data } = useQuery(SLIDERS);
-  
-  const { loading: loadingPromotion, error: errorPromotion, data: dataPromotion } =
-    useQuery(PROMOTIONS);
 
-   
-
-
-
-
-
-   
+  const {
+    loading: loadingPromotion,
+    error: errorPromotion,
+    data: dataPromotion,
+  } = useQuery(PROMOTIONS);
 
   if (error) return "Error";
   if (loading) return "Loading";
   if (errorPromotion) return "Error";
- 
+
   return (
     <>
       <Header data={data} />
