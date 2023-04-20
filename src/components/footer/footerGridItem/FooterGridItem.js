@@ -6,3 +6,7 @@ export default function FooterGridItem({ img, name }) {
     />
   );
 }
+// src={
+//                     process.env.NEXT_PUBLIC_API_URL +
+//                     banner.attributes?.logo.data.attributes.url
+//                   }
