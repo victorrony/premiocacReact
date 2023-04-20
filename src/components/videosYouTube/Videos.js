@@ -46,18 +46,18 @@ export default function Videos({}) {
 
   return (
     <Slider {...settings}>
-      <div className="text-3xl mt-24 ">
-        <div className="grid relative md:w-100% place-items-center ">
-          {videos.map((banner, index) => (
+      {videos.map((banner, index) => (
+        <div className="text-3xl mt-24 ">
+          <div className="grid relative md:w-100% place-items-center ">
             <div key={index} className="flex relative ">
               <iframe
                 src={banner.attributes?.url}
                 className="w-full h-full md:w-[700px] md:h-[400px]"
               ></iframe>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      ))}
     </Slider>
   );
 }
