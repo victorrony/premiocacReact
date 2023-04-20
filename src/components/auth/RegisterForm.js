@@ -28,11 +28,7 @@ export default function RegisterForm({ onSubmit }) {
         },
         true
       )
-    );
-    // } else {
-    //   sept([false, ""]);
-    //   toast("Aceite os termos antes de continuar!");
-    // }
+    );    
   };
   return (
     <form
@@ -57,20 +53,7 @@ export default function RegisterForm({ onSubmit }) {
         <h1>Registre-se</h1>
       </div>
       <Input set={setUN} label="UserName" type="text" />
-      <EmailAndPasswordFeild set={setCredentials} />
-      {/* <div className="text-white">
-        <input
-          onChange={(e) => {
-            console.log(e.target.checked);
-            sept([e.target.checked, e.target.checked ? "hidden" : ""]);
-          }}
-          name="paymet"
-          type="checkbox"
-          className="mr-4 mb-6"
-          id="accept"
-        />
-        Aceite os termos de Privacidade
-      </div> */}
+      <EmailAndPasswordFeild set={setCredentials} />      
       <div className="text-center m">
         <Buttons label={"Registrar"} type="submit" twClass="!bg-main " />
       </div>

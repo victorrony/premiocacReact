@@ -27,7 +27,7 @@ export default function LoginForm({}) {
         onSubmit={(e) => {
           e.preventDefault();
           submit();
-          console.log("HERE");
+          console.log("HERE"); 
         }}
         className="grid place-content-center p-4 gap-4"
       >
