@@ -46,12 +46,12 @@ export default function Footer() {
       </div>
       <Slider {...settings}>
         {data.sponsors.data.map((banner, index) => (
-          <div className="">
+          <div className="flex content-center">
             {console.log("inside", banner)}
             {
               <div
                 key={index}
-                className="grid lg:ml-8"
+                className="grid lg:ml-8 justify-center"
               >
                 <img
                   src={

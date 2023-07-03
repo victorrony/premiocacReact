@@ -28,12 +28,12 @@ export const AuthProvider = ({ children }) => {
   const localLogin = (data, credentials) => {
     nookies.set(null, "jwt", data.login?.jwt || data.register?.jwt);
     nookies.set(null, "login", JSON.stringify(credentials));
-
-    console.log("Nada de mais", data.login?.jwt);
+    
     localStorage.setItem("token", data.login?.jwt || data.register?.jwt);
 
     setUser(data.login?.user || data.register?.jwt);
   };
+  //
   const login = async (credentials, redirect) => {
     await log({
       variables: {

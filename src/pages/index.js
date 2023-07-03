@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import { SLIDERS } from "../services/api/queries";
 import { PROMOTIONS } from "../services/api/queries";
 import Promotion from "@/components/promotion/Promotion";
-import { VIDEOS } from "../services/api/queries";
+// import { VIDEOS } from "../services/api/queries";
 import Videos from "@/components/videosYouTube/Videos";
 
 function HomePage() {
@@ -34,6 +34,6 @@ function HomePage() {
       </div>
     </>
   );
-}
+};
 
 export default HomePage;
